@@ -10,4 +10,4 @@ if (a) {
     console.log(m1);
     const m2 = await import('../2_ECMAScript/var.mjs');
     console.log(m2);
-}
+} 
