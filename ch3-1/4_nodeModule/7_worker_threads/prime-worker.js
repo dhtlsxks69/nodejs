@@ -7,7 +7,7 @@ function findPrimes(start, end) {
     let isPrime = true;
     for (let i = start; i <= end; i++) {
         for (let j = min; j < Math.sqrt(end); j++) {
-            if (i !== j && j === 0) {
+            if (i !== j && i % j === 0) {
                 isPrime = false;
                 break;
             }
@@ -31,7 +31,7 @@ if (isMainThread) {
         threads.add(new Worker(__filename, { workerData: { start, range: end } }));
         start += range;
     }
-    threads.add(new Worker(__filename, { workerData: { start, range: max} }));
+    threads.add(new Worker(__filename, { workerData: { start, range: max } }));
     for (let worker of threads) {
         worker.on('error', (err) => {
             throw err;
@@ -43,7 +43,7 @@ if (isMainThread) {
                 console.log(primes.length);
             }
         });
-        worker.on('messagae', (msg) => {
+        worker.on('message', (msg) => {
             primes = primes.concat(msg);
         });
     }
