@@ -2,7 +2,7 @@
   "name": "learn-mongoose",
   "version": "0.0.1",
   "description": "몽구스를 배우자",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app"
